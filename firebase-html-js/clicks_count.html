@@ -54,8 +54,9 @@
 
                 get(child(dbref, "Blogs/001/")).then((snapshot)=>{
                     if(snapshot.exists()){
-                        update(ref(db, "Articles/001/"),{
-                            Clicks: snapshot.val().Clicks + 1,
+                        var val = snapshot.val().Clicks;
+                        update(ref(db, "Blogs/001"),{
+                            Clicks: Number(val) + 1,
                         })
                         .then(()=>{
                             alert("data enter successful");
